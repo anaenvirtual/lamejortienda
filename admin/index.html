@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mejor Tienda - Selección de Productos de Amazon 2026</title>
+    <meta name="description" content="Selección curada de productos de Amazon: belleza premium, cocina, dispositivos Amazon y más, con enlaces directos para ver precio y disponibilidad.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9900;
+            --primary-dark: #E8890C;
+            --secondary: #0F1111;
+            --accent: #FEE2B3;
+            --bg: #F7F8FA;
+            --card-bg: #FFFFFF;
+            --text: #1A1A2E;
+            --text-light: #6B7280;
+            --border: #E5E7EB;
+            --success: #10B981;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #232F3E 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+            min-width: 200px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-bar .cat-select {
+            border: none;
+            border-radius: 8px 0 0 8px;
+            background: #E5E7EB;
+            color: #374151;
+            font-size: 0.85rem;
+            padding: 10px 8px;
+            cursor: pointer;
+            outline: none;
+            max-width: 130px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            background: #FFFFFF;
+            color: #1F2937;
+            outline: none;
+        }
+
+        .search-bar input::placeholder { color: #6B7280; }
+        .search-bar input:focus { box-shadow: 0 0 0 2px var(--primary); }
+
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .header-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            line-height: 1.3;
+            text-align: center;
+            transition: color 0.2s;
+        }
+
+        .header-links a strong { display: block; font-size: 0.9rem; }
+        .header-links a:hover { color: #FEE2B3; }
+
+        .search-bar .btn-buscar {
+            background: var(--primary);
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #FFFFFF;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .search-bar .btn-amazon {
+            background: transparent;
+            border: 1px solid var(--primary);
+            padding: 7px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .search-bar .btn-amazon:hover { background: rgba(16,185,129,0.15); }
+
+        .nav-categories {
+            background: #232F3E;
+            border-top: 1px solid #37475A;
+            padding: 0 24px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav-categories::-webkit-scrollbar { display: none; }
+
+        .nav-list {
+            display: flex;
+            gap: 4px;
+            max-width: 1400px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 8px 0;
+        }
+
+        .nav-list li {
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #D1D5DB;
+            white-space: nowrap;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .nav-list li:hover, .nav-list li.active {
+            background: #37475A;
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0F1111 0%, #232F3E 50%, #37475A 100%);
+            color: white;
+            padding: 60px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span { color: var(--primary); }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #9CA3AF;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 32px;
+        }
+
+        .sidebar { position: sticky; top: 120px; height: fit-content; }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-group { margin-bottom: 20px; }
+        .filter-group:last-child { margin-bottom: 0; }
+
+        .filter-group h4 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .filter-options { display: flex; flex-direction: column; gap: 6px; }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .filter-option:hover { background: var(--bg); }
+        .filter-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .products-section { min-width: 0; }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-title { font-size: 1.5rem; font-weight: 800; }
+        .section-title span { color: var(--primary); }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image-wrap {
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image-wrap img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s;
+        }
+
+        .product-emoji { font-size: 72px; line-height: 1; }
+
+        .product-card:hover .product-image-wrap img { transform: scale(1.08); }
+
+        .cat-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .cat-beauty  { background: #FCE7F3; color: #BE185D; }
+        .cat-kitchen { background: #FEF3C7; color: #B45309; }
+        .cat-devices { background: #DBEAFE; color: #1D4ED8; }
+        .cat-home    { background: #D1FAE5; color: #047857; }
+        .cat-tech    { background: #EDE9FE; color: #6D28D9; }
+        .cat-pets    { background: #CFFAFE; color: #0E7490; }
+        .cat-computo { background: #E0E7FF; color: #3730A3; }
+        .cat-baby    { background: #FFE4E6; color: #BE123C; }
+        .cat-auto    { background: #F3F4F6; color: #374151; }
+        .cat-viaje   { background: #ECFCCB; color: #3F6212; }
+
+        .price-aviso {
+            width: 100%;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            background: #FFFBEB;
+            border: 1px solid #FDE68A;
+            border-radius: 10px;
+            padding: 10px 16px;
+        }
+
+        .destacado-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #0F1111;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            z-index: 2;
+            box-shadow: 0 2px 6px rgba(16,185,129,0.4);
+        }
+
+        .product-info { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+
+        .product-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .product-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            flex: 1;
+        }
+
+        .price-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 12px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #0F1111;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16,185,129,0.4);
+        }
+
+        /* Banner explorar Amazon */
+        .explore-banner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+        }
+
+        .explore-inner {
+            background: linear-gradient(135deg, var(--secondary) 0%, #232F3E 100%);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            color: white;
+        }
+
+        .explore-inner h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+        .explore-inner h2 span { color: var(--primary); }
+        .explore-inner p { color: #9CA3AF; margin-bottom: 24px; }
+
+        .btn-explore {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #0F1111;
+            padding: 14px 36px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-explore:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(16,185,129,0.4); }
+
+        /* Sección servicios Amazon (bounties) */
+        .services-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+        }
+
+        .services-header { text-align: center; margin-bottom: 28px; }
+        .services-header h2 { font-size: 1.6rem; font-weight: 800; }
+        .services-header h2 span { color: var(--primary); }
+        .services-header p { color: var(--text-light); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .service-card .service-icon { font-size: 2.4rem; margin-bottom: 12px; }
+        .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .service-card p { font-size: 0.88rem; color: var(--text-light); flex: 1; margin-bottom: 16px; }
+
+        .featured-section {
+            background: linear-gradient(135deg, #0F1111 0%, #232F3E 100%);
+            padding: 60px 24px;
+            margin: 40px 0 0;
+        }
+
+        .featured-container { max-width: 1400px; margin: 0 auto; }
+
+        .featured-header { text-align: center; margin-bottom: 40px; }
+        .featured-header h2 { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 8px; }
+        .featured-header p { color: #9CA3AF; font-size: 1.1rem; }
+
+        .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+        .featured-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .featured-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .featured-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .featured-card h3 { color: white; font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .featured-card p { color: #9CA3AF; font-size: 0.9rem; }
+
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 48px 24px 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-brand h3 { font-size: 1.3rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; }
+        .footer-brand p { color: #9CA3AF; font-size: 0.9rem; line-height: 1.7; }
+
+        .footer-col h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; color: white; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: #9CA3AF; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-col p { color: #9CA3AF; font-size: 0.9rem; line-height: 1.7; }
+
+        .footer-bottom {
+            border-top: 1px solid #37475A;
+            padding-top: 24px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.85rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        #sin-resultados { display: none; text-align: center; color: var(--text-light); padding: 60px 20px; }
+        #sin-resultados .btn-primary { max-width: 320px; margin: 16px auto 0; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1024px) {
+            .main-container { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .featured-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .header-top { flex-wrap: wrap; }
+            .search-bar { order: 3; margin: 0; max-width: 100%; width: 100%; }
+            .hero h1 { font-size: 2rem; }
+            .products-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+            .footer-grid { grid-template-columns: 1fr; }
+            .featured-grid { grid-template-columns: 1fr; }
+        }
+    
+        .sort-select {
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            background: white;
+            color: var(--text);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .product-rating .stars { color: #F59E0B; font-size: 0.85rem; }
+        .product-rating .count { font-size: 0.75rem; color: #6B7280; }
+        .product-rating .sales-badge {
+            background: #FEF3C7;
+            color: #B45309;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .affiliate-notice {
+            font-size: 0.7rem;
+            color: #9CA3AF;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .product-image-wrap {
+            position: relative;
+            padding: 20px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-image-wrap.loaded {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            animation: none;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .product-image-wrap:not(.loaded) {
+            animation: shimmer 1.5s infinite;
+        }
+
+        .footer-disclosure {
+            border-top: 1px solid #37475A;
+            padding-top: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer-disclosure p {
+            color: #9CA3AF;
+            font-size: 0.8rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+</style>
+    <link rel="preconnect" href="https://m.media-amazon.com">
+    <link rel="dns-prefetch" href="https://m.media-amazon.com">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "La Mejor Tienda - Amazon Afiliados",
+      "url": "https://tudominio.com",
+      "description": "Selección curada de productos de Amazon por categoría",
+      "publisher": {
+        "@type": "Organization",
+        "name": "La Mejor Tienda"
+      }
+    }
+    </script>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-top">
+        <a href="#" class="logo">🛒 La Mejor Tienda</a>
+        <div class="search-bar">
+            <select class="cat-select" id="catSelect" onchange="searchProducts()">
+                <option value="all">Todos</option>
+                <option value="beauty">Belleza Premium</option>
+                <option value="kitchen">Cocina</option>
+                <option value="devices">Dispositivos</option>
+                <option value="pets">Mascotas</option>
+                <option value="computo">Computación</option>
+                <option value="baby">Bebés</option>
+                <option value="auto">Automotriz</option>
+                <option value="viaje">Equipaje y Relojes</option>
+                <option value="home">Hogar</option>
+                <option value="tech">Tecnología</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Buscar productos...">
+            <button class="btn-buscar" onclick="searchProducts()" aria-label="Buscar en la tienda">🔍</button>
+            <button class="btn-amazon" onclick="buscarEnAmazon()" title="Buscar directamente en Amazon">Amazon ↗</button>
+        </div>
+        <div class="header-links">
+            <a class="amazon-link" data-url="https://www.amazon.com/gp/goldbox" href="#" target="_blank" rel="nofollow sponsored noopener">Ofertas<strong>del día</strong></a>
+            <a class="amazon-link" data-url="https://www.amazon.com/gp/bestsellers" href="#" target="_blank" rel="nofollow sponsored noopener">Más<strong>vendidos</strong></a>
+        </div>
+    </div>
+    <nav class="nav-categories">
+        <ul class="nav-list" id="navList">
+            <li class="active" data-cat="all">🔥 Todos</li>
+            <li data-cat="beauty">💄 Belleza Premium</li>
+            <li data-cat="kitchen">🍳 Cocina</li>
+            <li data-cat="devices">📱 Dispositivos Amazon</li>
+            <li data-cat="pets">🐾 Mascotas</li>
+            <li data-cat="computo">💻 Computación</li>
+            <li data-cat="baby">👶 Bebés</li>
+            <li data-cat="auto">🚗 Automotriz</li>
+            <li data-cat="viaje">🧳 Equipaje y Relojes</li>
+            <li data-cat="home">🏠 Hogar</li>
+            <li data-cat="tech">🎧 Tecnología</li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Selección de <span>Productos Recomendados</span> de Amazon</h1>
+        <p>Belleza premium, cocina y dispositivos Amazon, elegidos por demanda y calidad. El precio se consulta directamente en Amazon.</p>
+        <div class="hero-badges">
+            <div class="badge">🛒 Compras directamente en Amazon</div>
+            <div class="badge">🗂️ Selección curada por categoría</div>
+            <div class="badge">🔎 Precio actualizado al hacer clic</div>
+        </div>
+    </div>
+</section>
+
+<div class="main-container">
+    <aside class="sidebar">
+        <div class="sidebar-card">
+            <h3>🎯 Filtrar Productos</h3>
+            <div class="filter-group">
+                <h4>Categorías</h4>
+                <div class="filter-options" id="categoryFilters">
+                    <label class="filter-option"><input type="checkbox" value="beauty" onchange="filterProducts()"> Belleza Premium</label>
+                    <label class="filter-option"><input type="checkbox" value="kitchen" onchange="filterProducts()"> Cocina</label>
+                    <label class="filter-option"><input type="checkbox" value="devices" onchange="filterProducts()"> Dispositivos Amazon</label>
+                    <label class="filter-option"><input type="checkbox" value="pets" onchange="filterProducts()"> Mascotas</label>
+                    <label class="filter-option"><input type="checkbox" value="computo" onchange="filterProducts()"> Computación</label>
+                    <label class="filter-option"><input type="checkbox" value="baby" onchange="filterProducts()"> Bebés</label>
+                    <label class="filter-option"><input type="checkbox" value="auto" onchange="filterProducts()"> Automotriz</label>
+                    <label class="filter-option"><input type="checkbox" value="viaje" onchange="filterProducts()"> Equipaje y Relojes</label>
+                    <label class="filter-option"><input type="checkbox" value="home" onchange="filterProducts()"> Hogar</label>
+                    <label class="filter-option"><input type="checkbox" value="tech" onchange="filterProducts()"> Tecnología</label>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-card">
+            <h3>🔥 Más Buscados</h3>
+            <div class="filter-options">
+                <div class="filter-option" style="cursor:pointer" onclick="searchByTag('sérum')">✨ Sérums faciales</div>
+                <div class="filter-option" style="cursor:pointer" onclick="searchByTag('freidora')">🍟 Freidoras de aire</div>
+                <div class="filter-option" style="cursor:pointer" onclick="searchByTag('kindle')">📚 Kindle</div>
+                <div class="filter-option" style="cursor:pointer" onclick="searchByTag('echo')">🔊 Echo / Alexa</div>
+                <div class="filter-option" style="cursor:pointer" onclick="searchByTag('café')">☕ Cafeteras</div>
+                <div class="filter-option" style="cursor:pointer" onclick="searchByTag('perro')">🐕 Para perros</div>
+                <div class="filter-option" style="cursor:pointer" onclick="searchByTag('gato')">🐈 Para gatos</div>
+            </div>
+        </div>
+    </aside>
+
+    <section class="products-section">
+        <div class="section-header">
+            <h2 class="section-title">Productos <span>Recomendados</span></h2>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <select class="sort-select" id="sortSelect" onchange="sortProducts()">
+                    <option value="featured">⭐ Destacados primero</option>
+                    <option value="az">A-Z</option>
+                    <option value="category">Por categoría</option>
+                    <option value="random">🎲 Aleatorio</option>
+                </select>
+                <p class="price-aviso">💲 Los precios y las ofertas del día se muestran directamente en Amazon al hacer clic en cada producto: así siempre verás el precio real y el descuento vigente.</p>
+            </div>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+        <div id="sin-resultados">
+            <p>No se encontró en nuestra selección, pero seguro está en Amazon.</p>
+            <a href="#" class="btn btn-primary" onclick="buscarEnAmazon(); return false;">🔍 Buscarlo en Amazon</a>
+        </div>
+    </section>
+</div>
+
+<div class="explore-banner">
+    <div class="explore-inner">
+        <h2>¿No encontraste lo que buscabas? <span>Explora todo Amazon</span></h2>
+        <p>Millones de productos con envío rápido. Entra desde aquí y navega con libertad.</p>
+        <a id="linkExplorar" href="https://www.amazon.com/" target="_blank" rel="nofollow sponsored noopener" class="btn-explore">Ir a Amazon 🛒</a>
+    </div>
+</div>
+
+<section class="services-section">
+    <div class="services-header">
+        <h2>Servicios de Amazon <span>que valen la pena</span></h2>
+        <p>Pruebas gratuitas y suscripciones populares</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">📦</div>
+            <h3>Amazon Prime</h3>
+            <p>Envíos gratis en 1-2 días, Prime Video y más. Prueba gratuita de 30 días.</p>
+            <a class="btn btn-primary servicio-link" data-url="https://www.amazon.com/prime" href="#" target="_blank" rel="nofollow sponsored noopener">Probar Prime gratis</a>
+            <div class="affiliate-notice">🔗 Enlace de afiliado</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎧</div>
+            <h3>Audible</h3>
+            <p>Miles de audiolibros y podcasts. Incluye prueba gratuita para nuevos usuarios.</p>
+            <a class="btn btn-primary servicio-link" data-url="https://www.amazon.com/hz/audible/mlp" href="#" target="_blank" rel="nofollow sponsored noopener">Probar Audible</a>
+            <div class="affiliate-notice">🔗 Enlace de afiliado</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">📚</div>
+            <h3>Kindle Unlimited</h3>
+            <p>Lectura ilimitada de millones de títulos. Prueba gratuita disponible.</p>
+            <a class="btn btn-primary servicio-link" data-url="https://www.amazon.com/kindleunlimited" href="#" target="_blank" rel="nofollow sponsored noopener">Probar Kindle Unlimited</a>
+            <div class="affiliate-notice">🔗 Enlace de afiliado</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎓</div>
+            <h3>Prime para Jóvenes</h3>
+            <p>¿Tienes de 18 a 24 años? Prime con descuento especial y prueba gratuita.</p>
+            <a class="btn btn-primary servicio-link" data-url="https://www.amazon.com/joinyoungadult" href="#" target="_blank" rel="nofollow sponsored noopener">Ver descuento joven</a>
+            <div class="affiliate-notice">🔗 Enlace de afiliado</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">💼</div>
+            <h3>Amazon Business</h3>
+            <p>Cuenta gratuita para empresas y emprendedores con precios y facturación especiales.</p>
+            <a class="btn btn-primary servicio-link" data-url="https://www.amazon.com/business" href="#" target="_blank" rel="nofollow sponsored noopener">Crear cuenta Business</a>
+            <div class="affiliate-notice">🔗 Enlace de afiliado</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🛍️</div>
+            <h3>Amazon Haul</h3>
+            <p>La tienda de gangas de Amazon: moda, hogar y más a precios mínimos.</p>
+            <a class="btn btn-primary servicio-link" data-url="https://www.amazon.com/haul/store" href="#" target="_blank" rel="nofollow sponsored noopener">Explorar Haul</a>
+            <div class="affiliate-notice">🔗 Enlace de afiliado</div>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">👶</div>
+            <h3>Baby Registry</h3>
+            <p>Crea gratis tu lista de regalos para bebé y compártela con familia y amigos.</p>
+            <a class="btn btn-primary servicio-link" data-url="https://www.amazon.com/baby-reg/homepage" href="#" target="_blank" rel="nofollow sponsored noopener">Crear lista de bebé</a>
+            <div class="affiliate-notice">🔗 Enlace de afiliado</div>
+        </div>
+    </div>
+</section>
+
+<section class="featured-section">
+    <div class="featured-container">
+        <div class="featured-header">
+            <h2>¿Cómo funciona este sitio?</h2>
+            <p>Somos un sitio de recomendaciones: la compra se realiza siempre en Amazon</p>
+        </div>
+        <div class="featured-grid">
+            <div class="featured-card">
+                <div class="featured-icon">🗂️</div>
+                <h3>1. Explora la selección</h3>
+                <p>Organizamos productos por categoría para facilitar la búsqueda</p>
+            </div>
+            <div class="featured-card">
+                <div class="featured-icon">🔗</div>
+                <h3>2. Haz clic en el producto</h3>
+                <p>El enlace te lleva a la página oficial del producto en Amazon</p>
+            </div>
+            <div class="featured-card">
+                <div class="featured-icon">🛒</div>
+                <h3>3. Compra en Amazon</h3>
+                <p>El precio, el envío y la garantía los gestiona directamente Amazon</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>La Mejor Tienda</h3>
+            <p>Sitio de recomendaciones de productos de Amazon organizados por categoría. No vendemos directamente: cada enlace lleva a Amazon, donde se realiza la compra.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Categorías</h4>
+            <ul>
+                <li><a href="#" onclick="filterByCategory('beauty'); return false;">Belleza Premium</a></li>
+                <li><a href="#" onclick="filterByCategory('kitchen'); return false;">Cocina</a></li>
+                <li><a href="#" onclick="filterByCategory('devices'); return false;">Dispositivos Amazon</a></li>
+                <li><a href="#" onclick="filterByCategory('pets'); return false;">Mascotas</a></li>
+                <li><a href="#" onclick="filterByCategory('computo'); return false;">Computación</a></li>
+                <li><a href="#" onclick="filterByCategory('baby'); return false;">Bebés</a></li>
+                <li><a href="#" onclick="filterByCategory('auto'); return false;">Automotriz</a></li>
+                <li><a href="#" onclick="filterByCategory('viaje'); return false;">Equipaje y Relojes</a></li>
+                <li><a href="#" onclick="filterByCategory('home'); return false;">Hogar</a></li>
+                <li><a href="#" onclick="filterByCategory('tech'); return false;">Tecnología</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Aviso de afiliación</h4>
+            <p>En calidad de Afiliados de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables. Los precios y la disponibilidad de los productos se muestran en Amazon y pueden cambiar en cualquier momento.</p>
+        </div>
+    </div>
+    <div class="footer-disclosure">
+        <p><strong>Aviso de afiliación:</strong> Somos participantes del Programa de Afiliados de Amazon Services LLC. Como Afiliados de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables. Los precios y disponibilidad se muestran en Amazon y pueden cambiar sin previo aviso. Los logotipos y marcas de Amazon son propiedad de Amazon.com, Inc. o sus afiliados.</p>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 La Mejor Tienda. Como Afiliados de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+    </div>
+</footer>
+
+<script>
+/* =====================================================================
+   CONFIGURACIÓN — Su tag de Amazon Associates
+   ===================================================================== */
+const TAG_AFILIADO = "lamejortie0c5-20";
+
+/* =====================================================================
+   SUS PRODUCTOS
+   Campos:
+     title:      nombre del producto
+     category:   beauty | kitchen | devices | home | tech
+     desc:       1 frase honesta (sin precios ni promesas)
+     emoji:      se muestra si no hay imagen
+     image:      "" o URL de la imagen real del producto en Amazon
+                 (clic derecho sobre la foto → Copiar dirección de la imagen)
+     amazonLink: enlace SiteStripe (amzn.to/...), URL del producto (/dp/...)
+                 o búsqueda (/s?k=...). El tag se añade solo si falta.
+
+   Los enlaces /s?k= (búsqueda) SÍ generan comisión: el visitante cae en
+   resultados relevantes y cualquier compra en 24 h cuenta. Aun así, lo
+   ideal es reemplazarlos poco a poco por enlaces SiteStripe directos.
+   ===================================================================== */
+const products = [
+
+    /* ---------- BELLEZA PREMIUM (comisión 10 %) ---------- */
+    {
+        title: "VEGAMOUR GRO+ Advanced Gel - Sérum Capilar",
+        category: "beauty", emoji: "🧴", destacado: true,
+        desc: "Sérum en gel con aplicador de masaje para reducir la caída y rotura del cabello. Vegano.",
+        image: "https://m.media-amazon.com/images/I/5117yBiRkLL._SX522_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0GS3HV9CW"
+    },
+    {
+        title: "Sol de Janeiro Brazilian Bum Bum Cream",
+        category: "beauty", emoji: "🥥",
+        desc: "Crema corporal reafirmante con aroma tropical, uno de los fenómenos de ventas en belleza.",
+        image: "https://m.media-amazon.com/images/I/71i2HiJaiHL._SX522_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CKDPBKXS"
+    },
+    {
+        title: "Olaplex No. 3 Hair Perfector",
+        category: "beauty", emoji: "💇‍♀️", destacado: true,
+        desc: "Tratamiento reparador de enlaces capilares para cabello dañado por tintes o calor.",
+        image: "https://m.media-amazon.com/images/I/610sljWCCzL._SL1500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0GHSXYY3Z"
+    },
+    {
+        title: "EltaMD UV Clear Protector Solar SPF 46",
+        category: "beauty", emoji: "☀️",
+        desc: "Protector solar facial recomendado por dermatólogos, apto para piel sensible y con acné.",
+        image: "https://m.media-amazon.com/images/I/71aXlh7do4L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B002MSN3QQ"
+    },
+    {
+        title: "Sunday Riley C.E.O. Glow - Aceite Facial con Vitamina C",
+        category: "beauty", emoji: "🍊",
+        desc: "Aceite facial iluminador con vitamina C y cúrcuma para dar luminosidad a la piel.",
+        image: "https://m.media-amazon.com/images/I/51n8PCddVjL._SX522_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B07NYH9H9V"
+    },
+    {
+        title: "GrandeLASH-MD Sérum de Pestañas",
+        category: "beauty", emoji: "👁️",
+        desc: "Sérum para favorecer la apariencia de pestañas más largas y con más volumen.",
+        image: "https://m.media-amazon.com/images/I/71Whd2okyBL._SX522_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B082WZTJV5"
+    },
+    {
+        title: "Elemis Pro-Collagen Cleansing Balm",
+        category: "beauty", emoji: "🌿",
+        desc: "Bálsamo limpiador facial de lujo que derrite el maquillaje y las impurezas.",
+        image: "https://m.media-amazon.com/images/I/61Tja-KY1HL._SX522_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B08MJZYW8P"
+    },
+    {
+        title: "Sunday Riley Good Genes - Tratamiento con Ácido Láctico",
+        category: "beauty", emoji: "✨",
+        desc: "Tratamiento exfoliante de lujo que mejora la textura y luminosidad de la piel.",
+        image: "https://m.media-amazon.com/images/I/614T2q9ASeL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0037LRZHA"
+    },
+    {
+        title: "Dermalogica Daily Microfoliant - Exfoliante en Polvo",
+        category: "beauty", emoji: "🫧",
+        desc: "Exfoliante facial suave de uso diario, clásico de las marcas premium de dermocosmética.",
+        image: "https://m.media-amazon.com/images/I/61R3XvWbtpL._SX522_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B071ZBJPH7"
+    },
+    {
+        title: "StriVectin TL Advanced - Crema Reafirmante de Cuello",
+        category: "beauty", emoji: "🦢",
+        desc: "Crema especializada para tensar y reafirmar la zona del cuello y escote.",
+        image: "https://m.media-amazon.com/images/I/5128BUNiIlL._SX522_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0C5FD2G3V"
+    },
+    {
+        title: "T3 AireLuxe - Secadora de Cabello Profesional Iónica",
+        category: "beauty", emoji: "💨",
+        desc: "Secadora iónica premium con cepillos incluidos, secado rápido y cuidado del brillo.",
+        image: "https://m.media-amazon.com/images/I/61JOCYHN5QL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CRG8Q9X7"
+    },
+
+    /* ---------- COCINA (comisión 4.5 %) ---------- */
+    {
+        title: "Ninja Foodi Deluxe XL 9-en-1 - Olla a Presión y Freidora de Aire",
+        category: "kitchen", emoji: "🍗",
+        desc: "Olla multifunción de 8 cuartos que combina cocción a presión y freído con aire.",
+        image: "https://m.media-amazon.com/images/I/51WcmasYlkL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B086542G1M"
+    },
+    {
+        title: "COSORI TurboBlaze 9-en-1 - Freidora de Aire 6 Qt",
+        category: "kitchen", emoji: "🍟", destacado: true,
+        desc: "Freidora de aire con revestimiento cerámico y 9 funciones, líder de ventas en su categoría.",
+        image: "https://m.media-amazon.com/images/I/81R9sA3IyBL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0C33CHG99"
+    },
+    {
+        title: "Instant Pot Duo 7-en-1 - Olla a Presión Eléctrica 6 Qt",
+        category: "kitchen", emoji: "🍲", destacado: true,
+        desc: "La olla programable más popular: presión, vapor, arroz, yogur y más en un equipo.",
+        image: "https://m.media-amazon.com/images/I/71lX5BofA0L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B06Y1YD5W7"
+    },
+    {
+        title: "Nespresso Vertuo Next - Cafetera de Cápsulas",
+        category: "kitchen", emoji: "☕",
+        desc: "Café espresso y de filtro con un toque, compatible con cápsulas Vertuo.",
+        image: "https://m.media-amazon.com/images/I/61WlCk4HxcL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0GLFSV2XD"
+    },
+    {
+        title: "De'Longhi Magnifica Evo - Cafetera Automática con Molinillo",
+        category: "kitchen", emoji: "🫖",
+        desc: "Cafetera automática con molinillo integrado y espumador para lattes y capuchinos.",
+        image: "https://m.media-amazon.com/images/I/71CgIkY3AnL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0B38KRTV6"
+    },
+    {
+        title: "KitchenAid Artisan - Batidora de Pedestal 5 Qt",
+        category: "kitchen", emoji: "🧁",
+        desc: "La batidora clásica para repostería, con tazón de acero y múltiples accesorios.",
+        image: "https://m.media-amazon.com/images/I/711fcF6OfnL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B004GUVD6K"
+    },
+    {
+        title: "Ninja Professional BL610 - Licuadora 1000W",
+        category: "kitchen", emoji: "🥤",
+        desc: "Licuadora potente para batidos, hielo y salsas, favorita en reseñas de cocina.",
+        image: "https://m.media-amazon.com/images/I/61DvtaqAWML._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B00NGV4506"
+    },
+    {
+        title: "CAROTE - Sartén Antiadherente de Granito",
+        category: "kitchen", emoji: "🍳",
+        desc: "Sartén de granito antiadherente sin PFOA, apta para inducción, éxito de ventas en cocina.",
+        image: "https://m.media-amazon.com/images/I/71od6IMQNyL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DS1YTQM9"
+    },
+    {
+        title: "Zojirushi NS-TSC10 - Arrocera Japonesa Programable",
+        category: "kitchen", emoji: "🍚",
+        desc: "Arrocera de alta gama con lógica difusa para arroz perfecto en cada preparación.",
+        image: "https://m.media-amazon.com/images/I/519ZkB1stgL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0074CDG6C"
+    },
+    {
+        title: "Astercook - Juego de Cuchillos 15 Piezas con Bloque",
+        category: "kitchen", emoji: "🔪",
+        desc: "Set de cuchillos de acero alemán con bloque afilador integrado, apto para lavavajillas.",
+        image: "https://m.media-amazon.com/images/I/61TheuxRpFL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0C1YBPJ43"
+    },
+
+    /* ---------- DISPOSITIVOS AMAZON (comisión 4 %) ---------- */
+    {
+        title: "Kindle Paperwhite - Lector de eBooks con Luz Cálida",
+        category: "devices", emoji: "📖", destacado: true,
+        desc: "Lector electrónico con pantalla antirreflejo y luz frontal ajustable.",
+        image: "https://m.media-amazon.com/images/I/61P+vrvFZ9L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B08KTZ8249"
+    },
+    {
+        title: "Echo Dot (5ª Gen) - Altavoz Inteligente con Alexa",
+        category: "devices", emoji: "🔊", destacado: true,
+        desc: "El altavoz inteligente más vendido: música, alarmas y hogar inteligente por voz.",
+        image: "https://m.media-amazon.com/images/I/71hNp8d9WvL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B09B8V1LZ3"
+    },
+    {
+        title: "Echo Show 8 - Pantalla Inteligente con Alexa",
+        category: "devices", emoji: "🖥️",
+        desc: "Pantalla HD con Alexa para videollamadas, recetas, cámaras y entretenimiento.",
+        image: "https://m.media-amazon.com/images/I/51Sdqx46SFL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DC8ZMR1P"
+    },
+    {
+        title: "Fire TV Stick 4K Max - Streaming en 4K",
+        category: "devices", emoji: "📺",
+        desc: "Convierte cualquier TV en Smart TV con apps de streaming y control por voz.",
+        image: "https://m.media-amazon.com/images/I/61WSW6X9+uL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0BP9SNVH9"
+    },
+    {
+        title: "Ring Video Doorbell - Timbre Inalámbrico con Video 2K",
+        category: "devices", emoji: "🚪",
+        desc: "Timbre inteligente con video 2K de gran angular, detección de movimiento y audio bidireccional.",
+        image: "https://m.media-amazon.com/images/I/51kY6VkfPeL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0G2D1R15Q"
+    },
+    {
+        title: "Ring Indoor Cam - Cámara de Seguridad Interior",
+        category: "devices", emoji: "📹",
+        desc: "Cámara compacta con video HD 1080p y audio bidireccional para vigilar el hogar.",
+        image: "https://m.media-amazon.com/images/I/51gHswF64tL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0B6GLQJMV"
+    },
+    {
+        title: "Blink Outdoor 4 - Cámara de Seguridad Exterior Inalámbrica",
+        category: "devices", emoji: "🎥",
+        desc: "Cámara resistente a la intemperie con dos años de batería y visión nocturna.",
+        image: "https://m.media-amazon.com/images/I/51exLYQReRL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DHLSZXQD"
+    },
+    {
+        title: "Fire HD 10 - Tableta para Toda la Familia",
+        category: "devices", emoji: "📱",
+        desc: "Tableta económica con pantalla Full HD de 10.1'' para video, lectura y juegos.",
+        image: "https://m.media-amazon.com/images/I/71H6sSNFC8L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0BHZWT2FR"
+    },
+    {
+        title: "Kindle Scribe Colorsoft - Lector con Escritura Digital",
+        category: "devices", emoji: "✍️",
+        desc: "Kindle de pantalla grande a color que permite tomar notas y anotar documentos.",
+        image: "https://m.media-amazon.com/images/I/71+tui84xqL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0FC1WNVMX"
+    },
+    {
+        title: "Echo Pop - Altavoz Inteligente Compacto con Alexa",
+        category: "devices", emoji: "🎵",
+        desc: "Altavoz compacto con sonido completo, ideal para dormitorios y espacios pequeños.",
+        image: "https://m.media-amazon.com/images/I/71yl4O2rswL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0FPSW6NB6"
+    },
+
+    /* ---------- MASCOTAS (comisión 3 % + bono $3 primera compra en tienda de mascotas) ---------- */
+    {
+        title: "Fuente de Agua de Acero Inoxidable para Gatos 2.2 L",
+        category: "pets", emoji: "💧",
+        desc: "Fuente silenciosa de acero inoxidable que estimula a los gatos a beber más agua.",
+        image: "https://m.media-amazon.com/images/I/71QLaRKrdvL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DDPYHHFX"
+    },
+    {
+        title: "Comedero Automático para Gatos y Perros 4 L",
+        category: "pets", emoji: "🍽️",
+        desc: "Dispensador programable de comida con grabadora de voz para llamar a su mascota.",
+        image: "https://m.media-amazon.com/images/I/61jan--2yZL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DF7H6SGZ"
+    },
+    {
+        title: "Furbo 360° - Cámara para Perros con Visión Panorámica",
+        category: "pets", emoji: "📷", destacado: true,
+        desc: "Cámara giratoria para ver, hablar y lanzar premios a su perro desde el celular.",
+        image: "https://m.media-amazon.com/images/I/616wRFOTA5L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B09GDQZLD1"
+    },
+    {
+        title: "Caja de Arena Autolimpiante para Gatos",
+        category: "pets", emoji: "🐱", destacado: true,
+        desc: "Arenero automático que se limpia solo, apto para hogares con varios gatos.",
+        image: "https://m.media-amazon.com/images/I/61cdHrlVAeL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DQW7857Q"
+    },
+    {
+        title: "Torre Rascador para Gatos de 54'' Multinivel",
+        category: "pets", emoji: "🏰",
+        desc: "Centro de actividades con rascadores y plataformas para juego y descanso.",
+        image: "https://m.media-amazon.com/images/I/61PR8kLFdRL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0D2HMV3S6"
+    },
+    {
+        title: "Cama Ortopédica Impermeable XL para Perros Grandes",
+        category: "pets", emoji: "🛏️",
+        desc: "Cama ortopédica resistente de 42'' para perros de hasta 90 libras, apta para exterior.",
+        image: "https://m.media-amazon.com/images/I/81jCVBq51ML._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0GTPM9P3J"
+    },
+    {
+        title: "FURminator - Cepillo Deslanador para Perros",
+        category: "pets", emoji: "🪮",
+        desc: "Herramienta profesional que reduce el pelo suelto y el desprendimiento de la capa inferior.",
+        image: "https://m.media-amazon.com/images/I/61KjmvUB1tL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B07MZBX5ZW"
+    },
+    {
+        title: "KONG Classic - Juguete Rellenable para Perros",
+        category: "pets", emoji: "🦴",
+        desc: "El juguete de caucho más clásico: rellenable con premios para masticar y entretener.",
+        image: "https://m.media-amazon.com/images/I/61eVAqrR7uL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B000AYN7LU"
+    },
+    {
+        title: "rabbitgoo - Arnés Antitirones para Perros",
+        category: "pets", emoji: "🦮",
+        desc: "Arnés acolchado ajustable con dos clips de correa, ideal para paseos sin tirones.",
+        image: "https://m.media-amazon.com/images/I/71eROBTwkVL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B01M8JT6FT"
+    },
+    {
+        title: "Kit de Aseo con Aspiradora para Mascotas",
+        category: "pets", emoji: "✂️",
+        desc: "Kit de cepillado y corte con aspiradora que captura el pelo mientras asea a su mascota.",
+        image: "https://m.media-amazon.com/images/I/71gMbCJxeZL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CQSYJ3CQ"
+    },
+
+    /* ---------- COMPUTACIÓN Y SETUP (comisión 2.5–4 %) ---------- */
+    {
+        title: "HP Laptop 15.6'' FHD - Intel, 16 GB RAM, SSD",
+        category: "computo", emoji: "💻", destacado: true,
+        desc: "Portátil para trabajo y estudio con pantalla Full HD, 16 GB de RAM y disco sólido.",
+        image: "https://m.media-amazon.com/images/I/71-lP3fQRpL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0GZ89D75N"
+    },
+    {
+        title: "Apple MacBook Air 13'' con Chip M5",
+        category: "computo", emoji: "🍎", destacado: true,
+        desc: "El portátil ligero de Apple con pantalla Retina y batería de larga duración.",
+        image: "https://m.media-amazon.com/images/I/71pkfQGcMKL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0GR1JTFP8"
+    },
+    {
+        title: "Samsung Monitor Curvo 27'' FHD 100Hz",
+        category: "computo", emoji: "🖥️",
+        desc: "Monitor curvo Full HD ideal para trabajo, estudio y entretenimiento.",
+        image: "https://m.media-amazon.com/images/I/619WSKm18ZL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DB9Q5G3R"
+    },
+    {
+        title: "Samsung T9 - SSD Portátil 1 TB",
+        category: "computo", emoji: "💾",
+        desc: "Disco sólido externo ultrarrápido para respaldos y transferencia de archivos.",
+        image: "https://m.media-amazon.com/images/I/71EESd1deTL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CHFSWM2P"
+    },
+    {
+        title: "AULA F75 Pro - Teclado Mecánico Inalámbrico",
+        category: "computo", emoji: "⌨️",
+        desc: "Teclado mecánico 75 % personalizable, favorito en reseñas de calidad-precio.",
+        image: "https://m.media-amazon.com/images/I/61MC8BK0w0L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0D14N2QZF"
+    },
+    {
+        title: "Logitech Lift - Mouse Vertical Ergonómico",
+        category: "computo", emoji: "🖱️",
+        desc: "Mouse vertical inalámbrico que reduce la tensión de muñeca en jornadas largas.",
+        image: "https://m.media-amazon.com/images/I/61OkuiCWbDL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B09J1TB35S"
+    },
+    {
+        title: "Silla de Oficina Ergonómica con Soporte Lumbar",
+        category: "computo", emoji: "🪑",
+        desc: "Silla de escritorio con soporte lumbar ajustable y capacidad de 400 lbs.",
+        image: "https://m.media-amazon.com/images/I/81IVVCXYuuL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0F62NG547"
+    },
+    {
+        title: "Veken - Escritorio Elevable Eléctrico 140 cm",
+        category: "computo", emoji: "🔝",
+        desc: "Escritorio de altura ajustable para alternar entre trabajo sentado y de pie.",
+        image: "https://m.media-amazon.com/images/I/61tvhGirBlL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DWMNPW7D"
+    },
+    {
+        title: "Anker - Hub USB-C 5 en 1 con HDMI 4K",
+        category: "computo", emoji: "🔗",
+        desc: "Adaptador multipuerto para conectar pantalla, USB y carga a la laptop.",
+        image: "https://m.media-amazon.com/images/I/615HRY2dnML._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0BQLLB61B"
+    },
+    {
+        title: "Logitech Brio 101 - Webcam Full HD 1080p",
+        category: "computo", emoji: "📸",
+        desc: "Cámara web nítida para videollamadas, clases y reuniones de trabajo.",
+        image: "https://m.media-amazon.com/images/I/71A0Pp767BL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0BXGFFSL1"
+    },
+
+    /* ---------- BEBÉS (comisión 3 % + bono $3 por Baby Registry) ---------- */
+    {
+        title: "HelloBaby - Monitor de Bebé con Pantalla 5''",
+        category: "baby", emoji: "👶", destacado: true,
+        desc: "Monitor de video sin WiFi con batería de 30 horas para vigilar al bebé con privacidad.",
+        image: "https://m.media-amazon.com/images/I/613RCWv-M1L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B09GM8JZM9"
+    },
+    {
+        title: "Pañalera Mochila Impermeable con Cambiador",
+        category: "baby", emoji: "🎒",
+        desc: "Mochila de pañales con estación de cambio integrada y compartimentos térmicos.",
+        image: "https://m.media-amazon.com/images/I/81wTaSOeV6L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0C86S6GLQ"
+    },
+    {
+        title: "GROWNSY - Esterilizador y Secador de Biberones",
+        category: "baby", emoji: "🍼",
+        desc: "Esterilizador eléctrico compacto que desinfecta y seca biberones y accesorios.",
+        image: "https://m.media-amazon.com/images/I/61+f4I4fpTL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B09HH7HSGV"
+    },
+    {
+        title: "Extractor de Leche Eléctrico Portátil Manos Libres",
+        category: "baby", emoji: "🤱",
+        desc: "Extractor portátil de uso manos libres con varios modos de succión.",
+        image: "https://m.media-amazon.com/images/I/61yPNxBLxEL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0D9MKNL8N"
+    },
+    {
+        title: "Columpio Eléctrico para Bebé con Control Remoto",
+        category: "baby", emoji: "🪆",
+        desc: "Mecedora eléctrica con 5 velocidades de movimiento natural y música.",
+        image: "https://m.media-amazon.com/images/I/61CeEd7zAEL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CG5JL7NJ"
+    },
+    {
+        title: "Corralito de Juegos 50x50'' para Bebés",
+        category: "baby", emoji: "🧸",
+        desc: "Corral amplio y seguro para juego en interiores y exteriores.",
+        image: "https://m.media-amazon.com/images/I/71YdsncxTFL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0BVLX15R2"
+    },
+    {
+        title: "Hatch Rest Go - Máquina de Ruido Blanco Portátil",
+        category: "baby", emoji: "🌙",
+        desc: "Equipo de sonidos calmantes portátil para ayudar al bebé a dormir.",
+        image: "https://m.media-amazon.com/images/I/61xr8mcEjSL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0C5S8VB2K"
+    },
+    {
+        title: "Frida Baby - Kit de Cuidado para Recién Nacido 10 Piezas",
+        category: "baby", emoji: "🩺",
+        desc: "Set de esenciales de salud e higiene para bebé, regalo clásico de baby shower.",
+        image: "https://m.media-amazon.com/images/I/71yHc9o0d2L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0BLCTTMRB"
+    },
+    {
+        title: "Carriola Ligera Plegable de Viaje",
+        category: "baby", emoji: "🚼",
+        desc: "Cochecito portátil de plegado compacto, práctico para viajes y ciudad.",
+        image: "https://m.media-amazon.com/images/I/71Ul6NULNhL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DJQX7YBP"
+    },
+
+    /* ---------- AUTOMOTRIZ (comisión 4.5 %) ---------- */
+    {
+        title: "Aspiradora de Mano para Auto con Plumero de Aire",
+        category: "auto", emoji: "🧹",
+        desc: "Aspiradora portátil de alta succión para mantener el interior del auto impecable.",
+        image: "https://m.media-amazon.com/images/I/61rqqQdU2fL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0BYD5XB67"
+    },
+    {
+        title: "ROVE R2-4K - Dash Cam Dual Frontal y Trasera",
+        category: "auto", emoji: "📹", destacado: true,
+        desc: "Cámara de tablero 4K con visión frontal y trasera para registrar cada trayecto.",
+        image: "https://m.media-amazon.com/images/I/81gJzoR2uBL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0D6J5B98H"
+    },
+    {
+        title: "Arrancador de Batería Portátil 4500A con Compresor",
+        category: "auto", emoji: "🔋",
+        desc: "Jump starter con compresor de aire integrado: dos emergencias resueltas en un equipo.",
+        image: "https://m.media-amazon.com/images/I/718AM2Oh-FL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0FMD8Z8K2"
+    },
+    {
+        title: "Helteko - Organizador de Asiento Trasero",
+        category: "auto", emoji: "🗂️",
+        desc: "Protector y organizador de asiento con soporte para tablet, ideal con niños.",
+        image: "https://m.media-amazon.com/images/I/91-2eO3L+6L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B07RNZV64Y"
+    },
+    {
+        title: "Kit de Limpieza Interior de Auto 17 Piezas",
+        category: "auto", emoji: "🧽",
+        desc: "Set completo de detailing con aspiradora de mano y accesorios de limpieza.",
+        image: "https://m.media-amazon.com/images/I/813G4hCfFKL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B09WJ1C2JL"
+    },
+    {
+        title: "OlarHike - Inflador de Llantas Portátil",
+        category: "auto", emoji: "🛞",
+        desc: "Compresor de aire portátil de inflado rápido para llantas de auto y bicicleta.",
+        image: "https://m.media-amazon.com/images/I/81dezuFNdYL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0FDWMP57L"
+    },
+    {
+        title: "Soporte Magnético de Celular para Auto",
+        category: "auto", emoji: "📱",
+        desc: "Soporte compatible con MagSafe de succión reforzada para el tablero.",
+        image: "https://m.media-amazon.com/images/I/71GXSlQR9ML._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DN1S1YLV"
+    },
+    {
+        title: "ANCEL AD310 - Escáner de Diagnóstico OBD2",
+        category: "auto", emoji: "🔧",
+        desc: "Lector de códigos de error del motor, el clásico para diagnóstico casero.",
+        image: "https://m.media-amazon.com/images/I/61KElcCN4BL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B01G5EA74I"
+    },
+    {
+        title: "Fundas de Asiento Universales para Auto",
+        category: "auto", emoji: "💺",
+        desc: "Fundas resistentes que protegen y renuevan el interior del vehículo.",
+        image: "https://m.media-amazon.com/images/I/619yK1JWWXL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B01FKQW1QY"
+    },
+    {
+        title: "Cargador de Auto USB-C 67W de Carga Rápida",
+        category: "auto", emoji: "⚡",
+        desc: "Cargador de 3 puertos para cargar celulares y tablets en el camino.",
+        image: "https://m.media-amazon.com/images/I/71y5KNyD3WL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0DHQB6WQR"
+    },
+
+    /* ---------- EQUIPAJE Y RELOJES (comisión 4 %) ---------- */
+    {
+        title: "OLIXIS - Maleta de Mano Carry-On con Ruedas",
+        category: "viaje", emoji: "🧳",
+        desc: "Maleta de cabina rígida con ruedas giratorias, tamaño aprobado por aerolíneas.",
+        image: "https://m.media-amazon.com/images/I/617aqVaaG0L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0H3V8VYSQ"
+    },
+    {
+        title: "Coolife - Juego de Maletas 3 Piezas",
+        category: "viaje", emoji: "🛄", destacado: true,
+        desc: "Set de tres maletas rígidas de distintos tamaños para toda la familia.",
+        image: "https://m.media-amazon.com/images/I/818miQalyUL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0BHDGZXW5"
+    },
+    {
+        title: "Taygeer - Mochila de Viaje de Cabina con Puerto USB",
+        category: "viaje", emoji: "🎒",
+        desc: "Mochila aprobada como equipaje de mano con compartimento para laptop.",
+        image: "https://m.media-amazon.com/images/I/71K30PIVQmL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B09MQWWP87"
+    },
+    {
+        title: "BAGAIL - Organizadores de Equipaje (Packing Cubes)",
+        category: "viaje", emoji: "📦",
+        desc: "Cubos de empaque que ordenan la maleta y ahorran espacio al viajar.",
+        image: "https://m.media-amazon.com/images/I/61aFuRVWe3L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B08S35399Y"
+    },
+    {
+        title: "BANGE - Mochila Antirrobo para Laptop con USB",
+        category: "viaje", emoji: "🔒",
+        desc: "Mochila de negocios ligera con cierres de seguridad y puerto de carga.",
+        image: "https://m.media-amazon.com/images/I/61I1q1hyP3L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CCL43WVJ"
+    },
+    {
+        title: "Casio - Reloj Clásico para Hombre",
+        category: "viaje", emoji: "⌚",
+        desc: "Reloj resistente y atemporal de la marca japonesa más confiable en su rango.",
+        image: "https://m.media-amazon.com/images/I/61vAwF6wH0L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B08VNR3NRW"
+    },
+    {
+        title: "Fossil - Reloj Elegante para Mujer",
+        category: "viaje", emoji: "🕰️",
+        desc: "Reloj de vestir con acabados metálicos, ideal para uso diario y ocasiones.",
+        image: "https://m.media-amazon.com/images/I/71HAooNcaYL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B009BEOAGQ"
+    },
+    {
+        title: "Buffway - Cartera Delgada con Bloqueo RFID",
+        category: "viaje", emoji: "👛",
+        desc: "Cartera minimalista de cuero con protección contra escaneo de tarjetas.",
+        image: "https://m.media-amazon.com/images/I/71HYKrPNYEL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B07SVPD6PX"
+    },
+    {
+        title: "NISHEL - Neceser de Viaje Colgante",
+        category: "viaje", emoji: "🧴",
+        desc: "Organizador de cosméticos portátil con gancho, perfecto para viajes.",
+        image: "https://m.media-amazon.com/images/I/716CURzfBdL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CXCRZC7W"
+    },
+
+    /* ---------- HOGAR Y TECNOLOGÍA (comisión 3 %) ---------- */
+    {
+        title: "Stanley Quencher H2.0 40 oz - Vaso Térmico con Pajita y Asa",
+        category: "home", emoji: "🥃", destacado: true,
+        desc: "Vaso térmico de acero inoxidable que mantiene la temperatura por horas.",
+        image: "https://m.media-amazon.com/images/I/51wUNJPN7IL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CRMP3RQT"
+    },
+    {
+        title: "CeraVe Moisturizing Cream - Hidratante Facial y Corporal",
+        category: "home", emoji: "🧴",
+        desc: "Crema hidratante con ceramidas y ácido hialurónico para piel seca.",
+        image: "https://m.media-amazon.com/images/I/61EidjXUBrL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B00TTD9BRC"
+    },
+    {
+        title: "Apple AirPods Pro 2 - Cancelación Activa de Ruido",
+        category: "tech", emoji: "🎧",
+        desc: "Auriculares inalámbricos con cancelación activa de ruido y audio espacial.",
+        image: "https://m.media-amazon.com/images/I/61SUj2aKoEL._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0D1XD1ZV3"
+    },
+    {
+        title: "Anker Prime - Estación de Carga 200W de 6 Puertos",
+        category: "tech", emoji: "🔌",
+        desc: "Cargador de escritorio GaN con 6 puertos para cargar múltiples dispositivos a la vez.",
+        image: "https://m.media-amazon.com/images/I/71-68+RF+8L._SL500_.jpg",
+        amazonLink: "https://www.amazon.com/dp/B0CT2NQ7WG"
+    }
+];
+/* ============== FIN DE LA ZONA EDITABLE ============== */
+
+let currentFilter = 'all';
+
+function conTag(url) {
+    try {
+        const u = new URL(url);
+        if (u.hostname.includes("amazon") && !u.searchParams.has("tag")) {
+            u.searchParams.set("tag", TAG_AFILIADO);
+        }
+        return u.toString();
+    } catch (e) { return url; }
+}
+
+function getCategoryName(cat) {
+    const names = {
+        beauty: 'Belleza Premium', kitchen: 'Cocina', devices: 'Dispositivos Amazon',
+        pets: 'Mascotas', computo: 'Computación', baby: 'Bebés', auto: 'Automotriz',
+        viaje: 'Equipaje y Relojes', home: 'Hogar', tech: 'Tecnología'
+    };
+    return names[cat] || cat;
+}
+
+function imagenHTML(p) {
+    const emoji = `<span class="product-emoji" role="img" aria-label="${p.title}">${p.emoji || '🛍️'}</span>`;
+    if (!p.image) return emoji;
+    return `<img src="${p.image}" alt="${p.title}" loading="lazy"
+        onerror="this.parentElement.innerHTML='<span class=\'product-emoji\' style=\'font-size:72px\'>'+'${p.emoji || '🛍️'}'+'</span>'">
+        <span class="product-emoji" style="display:none">${p.emoji || '🛍️'}</span>`;
+}
+
+function sortProducts() {
+    const sortValue = document.getElementById('sortSelect').value;
+    let sorted = [...products];
+
+    switch(sortValue) {
+        case 'featured':
+            sorted.sort((a, b) => (b.destacado ? 1 : 0) - (a.destacado ? 1 : 0));
+            break;
+        case 'az':
+            sorted.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        case 'category':
+            sorted.sort((a, b) => a.category.localeCompare(b.category) || a.title.localeCompare(b.title));
+            break;
+        case 'random':
+            sorted.sort(() => Math.random() - 0.5);
+            break;
+    }
+
+    // Aplicar filtros actuales
+    const checkboxes = document.querySelectorAll('#categoryFilters input:checked');
+    const selectedCats = Array.from(checkboxes).map(cb => cb.value);
+
+    const filtered = sorted.filter(p => {
+        const catMatch = selectedCats.length === 0 || selectedCats.includes(p.category);
+        const navMatch = currentFilter === 'all' || p.category === currentFilter;
+        return catMatch && navMatch;
+    });
+
+    renderProducts(filtered);
+}
+
+function trackAffiliateClick(element) {
+    const product = element.dataset.product;
+    const category = element.dataset.category;
+
+    // Google Analytics 4 event (reemplaza G-YSTBKLPFEL con tu ID real)
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'affiliate_click', {
+            product_name: product,
+            category: category,
+            source: 'product_card'
+        });
+    }
+
+    // Fallback: console log para debugging
+    console.log('Affiliate click:', { product, category });
+}
+
+function renderProducts(productList) {
+    const grid = document.getElementById('productsGrid');
+    grid.innerHTML = productList.map(p => {
+        const stars = p.rating ? '★'.repeat(Math.round(parseFloat(p.rating))) + '☆'.repeat(5 - Math.round(parseFloat(p.rating))) : '';
+        return `
+        <div class="product-card" data-category="${p.category}">
+            <div class="product-image-wrap">
+                <span class="cat-badge cat-${p.category}">${getCategoryName(p.category)}</span>
+                ${p.destacado ? '<span class="destacado-badge">★ Destacado</span>' : ''}
+                ${imagenHTML(p)}
+            </div>
+            <div class="product-info">
+                ${p.rating ? `<div class="product-rating">
+                    <span class="stars">${stars}</span>
+                    <span class="count">${p.rating} (${p.reviews || '0'})</span>
+                    ${p.salesBadge ? `<span class="sales-badge">${p.salesBadge}</span>` : ''}
+                </div>` : ''}
+                <div class="product-title">${p.title}</div>
+                <div class="product-desc">${p.desc}</div>
+                <div class="price-note">💲 Precio y ofertas del día en Amazon</div>
+                <div class="product-actions">
+                    <a href="${conTag(p.amazonLink)}" target="_blank" rel="nofollow sponsored noopener" class="btn btn-primary" data-product="${p.title.replace(/"/g, '&quot;')}" data-category="${p.category}" onclick="trackAffiliateClick(this)">🔥 Ver oferta en Amazon →</a>
+                </div>
+                <div class="affiliate-notice">🔗 Enlace de afiliado — Obtenemos ingresos por compras adscritas</div>
+            </div>
+        </div>
+    `}).join('');
+    document.getElementById('sin-resultados').style.display = productList.length ? 'none' : 'block';
+
+    // Marcar imágenes como cargadas cuando se carguen
+    document.querySelectorAll('.product-image-wrap img').forEach(img => {
+        if (img.complete) {
+            img.closest('.product-image-wrap').classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() {
+                this.closest('.product-image-wrap').classList.add('loaded');
+            });
+        }
+    });
+}
+
+function filterProducts() {
+    const checkboxes = document.querySelectorAll('#categoryFilters input:checked');
+    const selectedCats = Array.from(checkboxes).map(cb => cb.value);
+
+    const filtered = products.filter(p => {
+        const catMatch = selectedCats.length === 0 || selectedCats.includes(p.category);
+        const navMatch = currentFilter === 'all' || p.category === currentFilter;
+        return catMatch && navMatch;
+    });
+
+    renderProducts(filtered);
+}
+
+document.querySelectorAll('.nav-list li').forEach(item => {
+    item.addEventListener('click', function() {
+        document.querySelectorAll('.nav-list li').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+        currentFilter = this.dataset.cat;
+        document.getElementById('searchInput').value = '';
+        filterProducts();
+    });
+});
+
+function filterByCategory(cat) {
+    currentFilter = cat;
+    document.querySelectorAll('.nav-list li').forEach(i => {
+        i.classList.toggle('active', i.dataset.cat === cat);
+    });
+    filterProducts();
+    document.querySelector('.products-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+function searchProducts() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    if (!query) { filterProducts(); return; }
+
+    const filtered = products.filter(p =>
+        p.title.toLowerCase().includes(query) ||
+        p.desc.toLowerCase().includes(query) ||
+        getCategoryName(p.category).toLowerCase().includes(query)
+    );
+    renderProducts(filtered);
+}
+
+/* Búsqueda directa en Amazon con el tag de afiliada:
+   cualquier compra dentro de las 24 h siguientes genera comisión. */
+function buscarEnAmazon() {
+    const q = document.getElementById('searchInput').value.trim();
+    const url = q
+        ? 'https://www.amazon.com/s?k=' + encodeURIComponent(q) + '&tag=' + TAG_AFILIADO
+        : 'https://www.amazon.com/?tag=' + TAG_AFILIADO;
+    window.open(url, '_blank', 'noopener');
+}
+
+function searchByTag(tag) {
+    document.getElementById('searchInput').value = tag;
+    searchProducts();
+    document.querySelector('.products-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+document.getElementById('searchInput').addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') searchProducts();
+    if (this.value === '') filterProducts();
+});
+
+/* Aplicar tag a los enlaces fijos (explorar y servicios) */
+document.getElementById('linkExplorar').href = 'https://www.amazon.com/?tag=' + TAG_AFILIADO;
+document.querySelectorAll('.servicio-link').forEach(a => { a.href = conTag(a.dataset.url); });
+
+renderProducts(products);
+</script>
+
+
+<!-- Google Analytics 4 - Reemplaza G-YSTBKLPFEL con tu ID de medición -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YSTBKLPFEL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YSTBKLPFEL');
+</script>
+</body>
+</html>
